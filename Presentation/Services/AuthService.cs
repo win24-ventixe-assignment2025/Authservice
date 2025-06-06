@@ -36,7 +36,8 @@ public class AuthService(DataContext context, IConfiguration configuration) : IA
         return new TokenResponseDto
         {
             AccessToken = CreateToken(user),
-            RefreshToken = await GenerateAndSaveRefreshTokenAsync(user)
+            RefreshToken = await GenerateAndSaveRefreshTokenAsync(user),
+            Role = user.Role
         };
     }
 
